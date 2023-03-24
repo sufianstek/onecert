@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont
 
 # insert name string
-namecert='ABDUL RAHMAN'
+namecert='NUR SYIFA SUFIAN'
 
 # load template
 image = Image.open('template.jpg')
@@ -10,8 +10,12 @@ color = 'rgb(0, 0, 0)'
 
 # load font and size of the font
 font = ImageFont.truetype('Lucida_Calligraphy_Font.otf', 150)
-w, h = draw.textsize(namecert, font=font)
+# get length of text
+w= draw.textlength(namecert, font=font)
 
-height=730 #location of the name string on vertical axis in pixels
-draw.text(((image.width - w)/2, height), namecert, fill=color, font=font) # put the text on the image
-image.save(namecert + '.jpg') # save it
+#location of the name string on vertical axis in pixels
+height=730 
+# put the text on the horizontal center of image
+draw.text(((image.width)/2, height), namecert, fill=color, font=font) 
+# save image to folder
+image.save(namecert + '.jpg') 
